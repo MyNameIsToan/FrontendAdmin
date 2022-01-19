@@ -1,0 +1,43 @@
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-3 fw-bolder" style="margin-left: -2em;">ADMINISTRATION PAGE</h1>
+      </div>
+  </div>
+</header>
+<div id="secwrapper">
+  <button class="btn btn-success" style="width: 10em; height: 3em; margin-left: 6em;" (click)="OpenCondition()">Tạo mới</button>
+  <form style="width: 86%; margin-left: 6em;" *ngIf="Open == 1">
+    <input type="text" placeholder="Tên trường" class="form-control" style="height: 3em; margin-top: 1.5em;">
+    <input type="text" placeholder="Khu Vực" class="form-control" style="height: 3em; margin-top: 1.5em;">
+    <input type="text" placeholder="Địa Chỉ" class="form-control" style="height: 3em; margin-top: 1.5em;">
+    <input type="text" placeholder="Email" class="form-control" style="height: 3em; margin-top: 1.5em;">
+    <input type="text" placeholder="Số Điện Thoại" class="form-control" style="height: 3em; margin-top: 1.5em;">
+    <input type="text" placeholder="Website" class="form-control" style="height: 3em; margin-top: 1.5em;">
+    <input type="text" placeholder="Mô tả" class="form-control" style="height: 3em; margin-top: 1.5em;">
+    <button type="submit" class="btn btn-success" style="width: 10em; height: 3em; margin-top: 1.5em; float: right;">Tạo mới</button>
+    <button type="submit" class="btn btn-danger" style="width: 10em; height: 3em; margin-top: 1.5em; float: right; margin-right: 1em;" (click)="CloseCondition()">Hủy bỏ</button>
+  </form>
+  <div style="clear: both;"></div>
+<section><br><br>
+  <article id="featured" *ngFor="let item of ListOfUnis" style="width: 40%; margin-left: 6em;">
+    <img [src]="item.image" style="width: 240px; height: 200px;">
+    <div style="float: right; width: 20em;">
+        <b>{{item.name}}</b>
+        <p>Khu vực: Phía {{item.zone}}</p>
+        <p>Địa Chỉ: {{item.address}}</p>
+        <p>Email: {{item.email}}</p>
+        <p>SĐT: {{item.phoneNumber}}</p>
+        <p>Website: {{item.website}}</p>
+    </div>
+    <h5 style="height: 3.6em; overflow: hidden;"></h5>
+    <hr><br>
+    <div style="width: 100%; height: 13.8em; overflow-y: hidden; overflow-x: hidden;" innerHTML="{{item.description}}"></div>
+    <hr>
+
+    <button class="btn btn-danger" style="padding:0.3em; float:right; margin-top: 0.5em; width: 10em; margin-left: 1em;">Xóa</button>
+    <button class="btn btn-primary" style="padding:0.3em; float:right; margin-top: 0.5em; width: 10em; margin-left: 1em;">Cập Nhật</button>
+    <button class="btn btn-success" style="padding:0.3em; float:right; margin-top: 0.5em; width: 10em; margin-left: 1em;" (click)="ShowMajor(item.id)">Ngành Đào Tạo</button>
+  </article>
+</section>
+</div>
